@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="inputform">
+        <form id="inputform">
+            <fieldset>
+                <legend>Input Book Infomation</legend>
+                <div class="bookname">
+                    <label for="bookname">Book Name:</label>
+                    <input type="text" name="bookname" id="bookname" placeholder="Alice in Wonderland" required>
+                </div>
+                <div class="author">
+                    <label for="author">Author:</label>
+                    <input type="text" name="author" id="author" placeholder="Louis Carol" required>
+                </div>
+                <div class="page">
+                    <label for="page">Total Page:</label>
+                    <input name="page" id="page" type="number" min="1" max="10000" placeholder="160">
+                </div>
+                <div class="price">
+                    <label for="price">Price:</label>
+                    <input name="price" id="price" type="number" min="1" max="100000000" placeholder="1200">
+                </div>
+            </fieldset>
+            <button id="datasubmit" type="button">Submit</button>
+        </form>
+    </div>
+    <div class="display">
+        <div class="bookinfo">
+            <h2>Alice in Wonderland</h2>
+            <div class="details">
+                <img src="imgs/book.png" alt="bookimage">
+                <p>Author : Louis Carol</p>
+                <p>Total Page : 160</p>
+                <p>Price : ¥1200</p>
+            </div>
+        </div>
+        <div class="bookinfo">
+            <h2>Alice in Wonderland</h2>
+            <div class="details">
+                <img src="imgs/book.png" alt="bookimage">
+                <p>Author : Louis Carol</p>
+                <p>Total Page : 160</p>
+                <p>Price : ¥1200</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
