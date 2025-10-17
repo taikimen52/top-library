@@ -8,10 +8,10 @@
     <script defer src="script.js"></script>
 </head>
 <body>
-    <div class="inputform">
+    <div class="header">
+        <h2>Input Book Information</h2>
         <form id="inputform">
-            <fieldset>
-                <legend>Input Book Infomation</legend>
+            <div class="inputinfo">
                 <div class="bookname">
                     <label for="bookname">Book Name:</label>
                     <input type="text" name="bookname" id="bookname" placeholder="Alice in Wonderland" required>
@@ -28,7 +28,7 @@
                     <label for="price">Price:</label>
                     <input name="price" id="price" type="number" min="1" max="100000000" placeholder="1200">
                 </div>
-            </fieldset>
+            </div>
             <button id="datasubmit" type="button">Submit</button>
         </form>
     </div>
