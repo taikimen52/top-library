@@ -8,11 +8,11 @@ const deleteBtn = document.querySelectorAll(".deletebtn");
 function Book(){
 }
 
-// 関数（1関数1タスク）
+
 //form入力された情報を元にBookインスタンスを生成し配列に追加
 function addBookToLibrary(name, author, page, price, read) {
     const currentBook = new Book;
-    currentBook.id = "id_" + crypto.randomUUID();
+    currentBook.id = "id_" + crypto.randomUUID(); //idが数字から始まると後の関数でバグるので回避
     currentBook.name = name;
     currentBook.author = author;
     currentBook.page = page;
@@ -41,10 +41,11 @@ function displayBooks(){
                 <button class="deletebtn">Delete this book</button>
             </div>
         </div>`
+
         contents.innerHTML += bookInfo;
     }
-    // ここでデリート機能を設置
-    setManageBtn();
+    // ここでボタン機能を設置
+    setManageBtns();
 }
 
 // ライブラリから特定のBookを削除する
@@ -71,8 +72,8 @@ function markRead(targetId) {
 }
 
 // 各BookカードのDelete・mark readボタンに機能を実装
-function setManageBtn() {
-    // 全てのデリートボタンを配列に
+function setManageBtns() {
+    // 全てのボタンノードを配列に
     const deleteBtns = document.querySelectorAll(".deletebtn");
     const markReadBtns = document.querySelectorAll(".markreadbtn");
 
@@ -97,19 +98,27 @@ function setManageBtn() {
 }
 
 // イベントリスナー系
-btn.addEventListener("click",(event)=>{
-    event.preventDefault;
+// btn.addEventListener("click",(event)=>{
+//     event.preventDefault;
+//     const bookName = document.querySelector("#bookname").value;
+//     const author = document.querySelector("#author").value;
+//     const page = document.querySelector("#page").valueAsNumber;
+//     const price = document.querySelector("#price").valueAsNumber;
+//     const read = document.querySelector("input[name='read']:checked").value
+//     addBookToLibrary(bookName, author, page, price, read);
+//     form.reset();
+//     displayBooks();
+// } )
+
+form.addEventListener("submit",(event)=>{
+    event.preventDefault();
     const bookName = document.querySelector("#bookname").value;
     const author = document.querySelector("#author").value;
     const page = document.querySelector("#page").valueAsNumber;
     const price = document.querySelector("#price").valueAsNumber;
     const read = document.querySelector("input[name='read']:checked").value
     addBookToLibrary(bookName, author, page, price, read);
-    console.log(myLibrary)
     form.reset();
+    console.log(myLibrary)
     displayBooks();
 } )
-
-
-
-
