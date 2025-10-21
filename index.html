@@ -9,67 +9,13 @@
 </head>
 <body>
     <div class="header">
-        <h2>Input Book Information</h2>
-        <form id="inputform">
-            <div class="inputinfo">
-                <div class="bookname">
-                    <label for="bookname">Book Name:</label>
-                    <input type="text" name="bookname" id="bookname" placeholder="Alice in Wonderland" required>
-                </div>
-                <div class="author">
-                    <label for="author">Author:</label>
-                    <input type="text" name="author" id="author" placeholder="Louis Carol" required>
-                </div>
-                <div class="page">
-                    <label for="page">Total Page:</label>
-                    <input name="page" id="page" type="number" min="1" max="10000" placeholder="160">
-                </div>
-                <div class="price">
-                    <label for="price">Price:</label>
-                    <input name="price" id="price" type="number" min="1" max="100000000" placeholder="1200">
-                </div>
-                <div class="readornot">
-                    <label for="read">Read or not:</label>
-                    <div class="read">
-                        <input type="radio" name="read" value="Read">Read
-                    </div>
-                    <div class="unread">
-                        <input type="radio" name="read" value="Unread" checked>Unread
-                    </div>
-                </div>
-            </div>
-            <button id="datasubmit" type="submit">Submit</button>
-        </form>
+        <div class="newbook">
+            <button id="newbookbtn" type="button">
+            New Book
+            </button>
+        </div>
     </div>
     <div class="display">
-        <div class="bookinfo">
-            <h2>Alice in Wonderland</h2>
-            <div class="details">
-                <img src="imgs/book.png" alt="bookimage">
-                <p>Author : Louis Carol</p>
-                <p>Total Page : 160</p>
-                <p>Price : ¥1200</p>
-                <p class="read">Read</p>
-            </div>
-            <div class="managebtns">
-                <button class="readornot" id="testidA">Mark Read</button>
-                <button class="deletebtn" id="testid1">Delete this book</button>
-
-            </div>
-        </div>
-        <div class="bookinfo">
-            <h2>Alice in Wonderland</h2>
-            <div class="details">
-                <img src="imgs/book.png" alt="bookimage">
-                <p>Author : Louis Carol</p>
-                <p>Total Page : 160</p>
-                <p>Price : ¥1200</p>
-            </div>
-            <div class="managebtns">
-                <button class="readornot" id="testidA">Mark Read</button>
-                <button class="deletebtn" id="testid2">Delete this book</button>
-            </div>
-        </div>
     </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 // グローバル定数・変数
 const myLibrary = [];
-const btn = document.querySelector("#datasubmit");
-const form = document.querySelector("#inputform");
+const newBookBtn = document.querySelector("#newbookbtn");
+const header = document.querySelector(".header");
 const deleteBtn = document.querySelectorAll(".deletebtn");
 
 // コンストラクタ・オブジェクト
@@ -97,28 +97,59 @@ function setManageBtns() {
     })
 }
 
-// イベントリスナー系
-// btn.addEventListener("click",(event)=>{
-//     event.preventDefault;
-//     const bookName = document.querySelector("#bookname").value;
-//     const author = document.querySelector("#author").value;
-//     const page = document.querySelector("#page").valueAsNumber;
-//     const price = document.querySelector("#price").valueAsNumber;
-//     const read = document.querySelector("input[name='read']:checked").value
-//     addBookToLibrary(bookName, author, page, price, read);
-//     form.reset();
-//     displayBooks();
-// } )
+function setForm(){
+    header.innerHTML = `
+        <h2>Input Book Information</h2>
+        <form id="inputform">
+            <div class="inputinfo">
+                <div class="bookname">
+                    <label for="bookname">Book Name:</label>
+                    <input type="text" name="bookname" id="bookname" placeholder="Alice in Wonderland" required>
+                </div>
+                <div class="author">
+                    <label for="author">Author:</label>
+                    <input type="text" name="author" id="author" placeholder="Louis Carol" required>
+                </div>
+                <div class="page">
+                    <label for="page">Total Page:</label>
+                    <input name="page" id="page" type="number" min="1" max="10000" placeholder="160">
+                </div>
+                <div class="price">
+                    <label for="price">Price:</label>
+                    <input name="price" id="price" type="number" min="1" max="100000000" placeholder="1200">
+                </div>
+                <div class="readornot">
+                    <label for="read">Read or not:</label>
+                    <div class="read">
+                        <input type="radio" name="read" value="Read">Read
+                    </div>
+                    <div class="unread">
+                        <input type="radio" name="read" value="Unread" checked>Unread
+                    </div>
+                </div>
+            </div>
+            <button id="datasubmit" type="submit">Submit</button>
+        </form>
+    `
+    setSubmitBtn();
+}
 
-form.addEventListener("submit",(event)=>{
-    event.preventDefault();
-    const bookName = document.querySelector("#bookname").value;
-    const author = document.querySelector("#author").value;
-    const page = document.querySelector("#page").valueAsNumber;
-    const price = document.querySelector("#price").valueAsNumber;
-    const read = document.querySelector("input[name='read']:checked").value
-    addBookToLibrary(bookName, author, page, price, read);
-    form.reset();
-    console.log(myLibrary)
-    displayBooks();
-} )
+// イベントリスナー系
+function setSubmitBtn(){
+    const form = document.querySelector("#inputform");
+
+    form.addEventListener("submit",(event)=>{
+        event.preventDefault();
+        const bookName = document.querySelector("#bookname").value;
+        const author = document.querySelector("#author").value;
+        const page = document.querySelector("#page").valueAsNumber;
+        const price = document.querySelector("#price").valueAsNumber;
+        const read = document.querySelector("input[name='read']:checked").value
+        addBookToLibrary(bookName, author, page, price, read);
+        form.reset();
+        console.log(myLibrary)
+        displayBooks();
+    } )
+}
+
+newBookBtn.addEventListener("click", setForm);
