@@ -4,21 +4,20 @@ const newBookBtn = document.querySelector("#newbookbtn");
 const header = document.querySelector(".header");
 const deleteBtn = document.querySelectorAll(".deletebtn");
 
-// コンストラクタ・オブジェクト
-function Book(){
-}
+//Bookクラス
+class Book {
+    constructor(name, author, page, price, read) {
+        this.id = "id_" + crypto.randomUUID();
+        this.name = name;
+        this.author = author;
+        this.page = page;
+        this.price = price;
+        this.read = read;
+    }
 
-
-//form入力された情報を元にBookインスタンスを生成し配列に追加
-function addBookToLibrary(name, author, page, price, read) {
-    const currentBook = new Book;
-    currentBook.id = "id_" + crypto.randomUUID(); //idが数字から始まると後の関数でバグるので回避
-    currentBook.name = name;
-    currentBook.author = author;
-    currentBook.page = page;
-    currentBook.price = price;
-    currentBook.read = read;
-    myLibrary.push(currentBook);
+    addLibrary() {
+        myLibrary.push(this);
+    }
 }
 
 //配列のデータを元にBOOKインスタンスをフォーム下部に表示する
@@ -140,13 +139,14 @@ function setSubmitBtn(){
 
     form.addEventListener("submit",(event)=>{
         event.preventDefault();
-        const bookName = document.querySelector("#bookname").value;
+        const name = document.querySelector("#bookname").value;
         const author = document.querySelector("#author").value;
         const page = document.querySelector("#page").valueAsNumber;
         const price = document.querySelector("#price").valueAsNumber;
         const read = document.querySelector("input[name='read']:checked").value
-        addBookToLibrary(bookName, author, page, price, read);
+        const book = new Book(name, author, page, price, read);
         form.reset();
+        book.addLibrary();
         console.log(myLibrary)
         displayBooks();
     } )
